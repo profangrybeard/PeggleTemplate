@@ -5,10 +5,12 @@ using UnityEngine;
 public class BallBehavior : MonoBehaviour
 {
     // ─────────────────────────────────────────────────────────────────────────
-    // REFERENCES - Drag these in the Inspector
+    // REFERENCES - Found at runtime, not set in Inspector
     // ─────────────────────────────────────────────────────────────────────────
 
-    [SerializeField] private GameManager gameManagerReference;
+    // Why doesn't this have [SerializeField] like every other script?
+    // Why can't we drag a reference in the Inspector for this one?
+    private GameManager gameManagerReference;
 
     // ─────────────────────────────────────────────────────────────────────────
     // SETTINGS - Tweak these to change how the ball behaves
@@ -25,6 +27,13 @@ public class BallBehavior : MonoBehaviour
     // ─────────────────────────────────────────────────────────────────────────
     // UNITY MESSAGES - Unity calls these automatically
     // ─────────────────────────────────────────────────────────────────────────
+
+    private void Start()
+    {
+        // This ball was just created by Instantiate(). It needs to find the GameManager.
+        // Why do we have to "find" it here when other scripts just drag it in the Inspector?
+        gameManagerReference = FindFirstObjectByType<GameManager>();
+    }
 
     private void Update()
     {

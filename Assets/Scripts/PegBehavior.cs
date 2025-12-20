@@ -2,15 +2,6 @@
 
 using UnityEngine;
 
-// What does "enum" do? Try commenting this out and see what error you get.
-public enum PegType
-{
-    Blue,       // Standard peg - just gives points
-    Orange,     // Target peg - must clear all orange pegs to win
-    Green,      // Special peg - activates a power-up
-    Purple      // Bonus peg - extra points
-}
-
 public class PegBehavior : MonoBehaviour
 {
     // ─────────────────────────────────────────────────────────────────────────
@@ -18,13 +9,11 @@ public class PegBehavior : MonoBehaviour
     // ─────────────────────────────────────────────────────────────────────────
 
     [SerializeField] private ScoreManager scoreManagerReference;
-    [SerializeField] private GameManager gameManagerReference;
 
     // ─────────────────────────────────────────────────────────────────────────
     // SETTINGS - Tweak these to change peg behavior
     // ─────────────────────────────────────────────────────────────────────────
 
-    [SerializeField] private PegType whatTypeOfPegIsThis = PegType.Blue;
     [SerializeField] private int pointValueForThisPeg = 100;
     [SerializeField] private float secondsToWaitBeforeRemovingPeg = 0.5f;
 
@@ -40,13 +29,12 @@ public class PegBehavior : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Why check if it's already been hit? What happens if we don't?
         if (thisPegHasAlreadyBeenHit)
         {
             return;
         }
 
-        // Why check the tag instead of just assuming anything that hits is a ball?
+        // Why check the tag instead of assuming anything that hits is a ball?
         bool objectThatHitUsWasTheBall = collision.gameObject.CompareTag("Ball");
 
         if (objectThatHitUsWasTheBall)
@@ -63,22 +51,14 @@ public class PegBehavior : MonoBehaviour
     {
         thisPegHasAlreadyBeenHit = true;
 
-        // Tell the ScoreManager we got hit
         scoreManagerReference.AddPointsFromPegHit(pointValueForThisPeg);
 
-        // Why tell the GameManager separately if we're an orange peg?
-        if (whatTypeOfPegIsThis == PegType.Orange)
-        {
-            gameManagerReference.OnOrangePegWasHit();
-        }
-
-        // Why not destroy immediately? What would we miss?
+        // Why not destroy immediately?
         StartCoroutine(FadeOutThenDestroy());
     }
 
     private System.Collections.IEnumerator FadeOutThenDestroy()
     {
-        // Why use a coroutine instead of Destroy(gameObject, delay)?
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
 
         float elapsedTime = 0f;
@@ -89,7 +69,7 @@ public class PegBehavior : MonoBehaviour
             elapsedTime += Time.deltaTime;
             float percentComplete = elapsedTime / secondsToWaitBeforeRemovingPeg;
 
-            // What does Lerp do? Try changing the 0f to 0.5f and see what happens.
+            // What does Lerp do? Try changing 0f to 0.5f.
             float newAlpha = Mathf.Lerp(originalColor.a, 0f, percentComplete);
             spriteRenderer.color = new Color(originalColor.r, originalColor.g, originalColor.b, newAlpha);
 

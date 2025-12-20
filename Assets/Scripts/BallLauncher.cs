@@ -10,7 +10,8 @@ public class BallLauncher : MonoBehaviour
 
     [SerializeField] private GameManager gameManagerReference;
     [SerializeField] private GameObject ballPrefabToSpawn;
-    [SerializeField] private Transform positionWhereBalSpawns;
+    [SerializeField] private Transform positionWhereBallSpawns;
+    [SerializeField] private Camera mainCameraReference;
 
     // ─────────────────────────────────────────────────────────────────────────
     // SETTINGS - Tweak these to change launcher behavior
@@ -18,14 +19,12 @@ public class BallLauncher : MonoBehaviour
 
     [SerializeField] private float launchForceMultiplier = 10f;
     [SerializeField] private float maximumAimAngleInDegrees = 75f;
-    [SerializeField] private float aimingSpeedInDegreesPerSecond = 90f;
 
     // ─────────────────────────────────────────────────────────────────────────
     // STATE - The launcher tracks these while playing
     // ─────────────────────────────────────────────────────────────────────────
 
     private float currentAimAngleInDegrees = 0f;
-    private bool launcherIsCurrentlyAimingRight = true;
 
     // ─────────────────────────────────────────────────────────────────────────
     // UNITY MESSAGES - Unity calls these automatically
@@ -33,14 +32,12 @@ public class BallLauncher : MonoBehaviour
 
     private void Update()
     {
-        // Why check with GameManager before allowing input?
         if (!gameManagerReference.PlayerIsAllowedToShoot())
         {
             return;
         }
 
-        UpdateAimAngle();
-        RotateLauncherToMatchAimAngle();
+        AimTowardMousePosition();
         CheckForLaunchInput();
     }
 
@@ -48,59 +45,46 @@ public class BallLauncher : MonoBehaviour
     // PRIVATE METHODS - Internal logic
     // ─────────────────────────────────────────────────────────────────────────
 
-    private void UpdateAimAngle()
+    private void AimTowardMousePosition()
     {
-        // Why auto-aim instead of using mouse position?
-        float aimChangeThisFrame = aimingSpeedInDegreesPerSecond * Time.deltaTime;
+        // Convert mouse position from screen pixels to world units.
+        Vector3 mouseScreenPosition = Input.mousePosition;
+        mouseScreenPosition.z = 10f;
+        Vector3 mouseWorldPosition = mainCameraReference.ScreenToWorldPoint(mouseScreenPosition);
 
-        if (launcherIsCurrentlyAimingRight)
-        {
-            currentAimAngleInDegrees -= aimChangeThisFrame;
-        }
-        else
-        {
-            currentAimAngleInDegrees += aimChangeThisFrame;
-        }
+        // Calculate direction from launcher to mouse.
+        Vector3 directionToMouse = mouseWorldPosition - transform.position;
 
-        // Why flip direction at the boundaries instead of clamping?
-        if (currentAimAngleInDegrees <= -maximumAimAngleInDegrees)
-        {
-            launcherIsCurrentlyAimingRight = false;
-        }
-        else if (currentAimAngleInDegrees >= maximumAimAngleInDegrees)
-        {
-            launcherIsCurrentlyAimingRight = true;
-        }
-    }
+        // Convert direction to angle, adjusting so 0° means straight down.
+        float angleInDegrees = Mathf.Atan2(directionToMouse.y, directionToMouse.x) * Mathf.Rad2Deg + 90f;
 
-    private void RotateLauncherToMatchAimAngle()
-    {
-        // What does Quaternion.Euler do? Try removing this line.
+        // Clamp so player can only aim downward into the play field.
+        currentAimAngleInDegrees = Mathf.Clamp(angleInDegrees, -maximumAimAngleInDegrees, maximumAimAngleInDegrees);
+
+        // Apply rotation.
         transform.rotation = Quaternion.Euler(0f, 0f, currentAimAngleInDegrees);
     }
 
     private void CheckForLaunchInput()
     {
-        // Why use GetKeyDown instead of GetKey?
+        // Why use GetMouseButtonDown instead of GetMouseButton?
+        bool playerClickedThisFrame = Input.GetMouseButtonDown(0);
         bool playerPressedSpaceThisFrame = Input.GetKeyDown(KeyCode.Space);
-        bool playerClickedMouseThisFrame = Input.GetMouseButtonDown(0);
 
-        if (playerPressedSpaceThisFrame || playerClickedMouseThisFrame)
+        if (playerClickedThisFrame || playerPressedSpaceThisFrame)
         {
-            LaunchBallInCurrentDirection();
+            LaunchBall();
         }
     }
 
-    private void LaunchBallInCurrentDirection()
+    private void LaunchBall()
     {
-        // Why spawn at a separate position instead of the launcher's position?
-        GameObject newBall = Instantiate(ballPrefabToSpawn, positionWhereBalSpawns.position, Quaternion.identity);
+        GameObject newBall = Instantiate(ballPrefabToSpawn, positionWhereBallSpawns.position, Quaternion.identity);
 
-        // Why does transform.up give us the launch direction?
-        Vector2 launchDirection = transform.up;
+        // Why negative? The launcher points down, but transform.up points up.
+        Vector2 launchDirection = -transform.up;
         Vector2 launchVelocity = launchDirection * launchForceMultiplier;
 
-        // Why use GetComponent here instead of storing a reference?
         Rigidbody2D ballRigidbody = newBall.GetComponent<Rigidbody2D>();
         ballRigidbody.linearVelocity = launchVelocity;
 
