@@ -328,7 +328,7 @@ MonoBehaviour:
   uiControllerReference: {fileID: 1037681247}
   scoreManagerReference: {fileID: 1867995934}
   ballLauncherReference: {fileID: 1753174268}
-  numberOfBallsPlayerStartsWith: 10
+  numberOfBallsPlayerStartsWith: 100
   totalOrangePegsInThisLevel: 25
 --- !u!4 &113748760
 Transform:
