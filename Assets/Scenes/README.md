@@ -2,24 +2,38 @@
 
 Unity scene files that contain the game's levels and menus.
 
-## Expected Files
+## Files
 
 | Scene | Purpose |
 |-------|---------|
-| `MainGame.unity` | The primary gameplay scene with launcher, pegs, and bucket |
+| `Peggle_Prototype_01.unity` | **The game.** Open this one. |
+| `SampleScene.unity` | Unity's empty starter scene. Nothing in it. Ignore it. |
 
-## Scene Contents (MainGame)
+If you press Play and nothing happens, check the tab at the top of the Scene view. You are
+probably in `SampleScene`.
 
-The main scene should contain:
+## Scene Contents (Peggle_Prototype_01)
+
 - **Main Camera** — Orthographic camera for 2D view
+- **MANAGERS** — Empty parent, purely for organization. Holds:
+  - **GameManager** — Round flow, win and lose conditions
+  - **ScoreManager** — Score and combo math
+  - **UIController** — Writes numbers onto the Canvas
 - **Launcher** — At top center, player aims and fires from here
-- **Pegs** — Arranged in a pattern across the play area
+- **OrganizedPegs** — Empty parent holding all 50 pegs in a 10 × 5 grid
 - **Bucket** — At bottom, moves side to side
-- **UI Canvas** — Score display, balls remaining, game messages
-- **GameManager** — Empty GameObject holding the GameManager script
-- **ScoreManager** — Empty GameObject holding the ScoreManager script
+- **LeftWall / RightWall** — Keep the ball in the play area
+- **Canvas** — Score display, balls remaining, game over panel
+- **EventSystem** — Unity adds this automatically with any Canvas
+
+## About Those Empty GameObjects
+
+`MANAGERS` and `OrganizedPegs` have no components beyond a Transform. They exist only to
+keep the Hierarchy readable. Collapsing `OrganizedPegs` hides 50 rows.
 
 ## Questions to Consider
 
 - Why is GameManager an empty GameObject instead of attached to something visible?
 - What determines the order that objects appear in front of or behind each other?
+- The pegs are children of `OrganizedPegs`, which sits at a non-zero position. What does
+  that do to each peg's *local* position versus its *world* position?

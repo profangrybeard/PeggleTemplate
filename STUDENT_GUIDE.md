@@ -19,15 +19,20 @@ You're not building this game — you're reading it. Treat code like a novel: re
 - Variables are grouped: REFERENCES, SETTINGS, STATE
 - `Update()` runs every frame — Unity calls it automatically
 - `OnCollisionEnter2D()` runs when something touches this object
+- `PegType` is an **enum** — a short list of named options. Every peg is exactly one of them.
 
 ### Experiments
 1. Change `pointValueForThisPeg` in the Inspector. Play. What happens?
 2. Change `minimumYPositionBeforeBallIsLost` to -2. What happens?
 3. Remove a peg's Collider2D component. What happens when the ball reaches it?
+4. Pick a blue peg and change `whatTypeOfPegIsThis` to Orange. Play. Two things change —
+   one you can see immediately, one you can only see by playing the round out. Find both.
 
 ### Questions (Answer in your own comments)
 - In PegBehavior: Why check `thisPegHasAlreadyBeenHit` before doing anything?
 - In BallBehavior: Why check Y position instead of using a trigger at the bottom?
+- In PegBehavior: Every peg calls the ScoreManager, but only orange pegs call the
+  GameManager. What would break if *every* peg called the GameManager?
 
 ---
 
@@ -68,6 +73,12 @@ You're not building this game — you're reading it. Treat code like a novel: re
 1. Ball hits peg → PegBehavior calls ScoreManager
 2. ScoreManager adds points → ScoreManager calls UIController
 3. UIController updates the text on screen
+
+That's the path for *any* peg. Orange pegs take a second path at the same time:
+
+1. Ball hits an orange peg → PegBehavior *also* calls `GameManager.OnOrangePegWasHit()`
+2. GameManager decrements `orangePegsStillRemaining` — and does nothing else
+3. Nobody checks for a win until the ball is gone
 
 Now trace: What happens when the ball falls off the bottom?
 

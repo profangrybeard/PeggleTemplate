@@ -134,7 +134,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -220,7 +220,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -328,7 +328,7 @@ MonoBehaviour:
   uiControllerReference: {fileID: 1037681247}
   scoreManagerReference: {fileID: 1867995934}
   ballLauncherReference: {fileID: 1753174268}
-  numberOfBallsPlayerStartsWith: 100
+  numberOfBallsPlayerStartsWith: 10
   totalOrangePegsInThisLevel: 25
 --- !u!4 &113748760
 Transform:
@@ -355,7 +355,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -441,7 +441,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -527,7 +527,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -613,7 +613,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -699,7 +699,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -785,7 +785,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -871,7 +871,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -957,7 +957,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -1135,7 +1135,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -1221,7 +1221,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -1388,7 +1388,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -1474,7 +1474,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -1560,7 +1560,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -1646,7 +1646,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -1732,7 +1732,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -1952,7 +1952,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -2114,7 +2114,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -2200,7 +2200,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -2337,7 +2337,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -2471,7 +2471,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -2557,7 +2557,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -2707,7 +2707,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -2793,7 +2793,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -2879,7 +2879,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -2965,7 +2965,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -3190,7 +3190,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -3276,7 +3276,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -3362,7 +3362,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -3448,7 +3448,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -3638,7 +3638,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -3724,7 +3724,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -3810,7 +3810,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -3896,7 +3896,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -4119,7 +4119,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -4205,7 +4205,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -4291,7 +4291,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -4377,7 +4377,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -4463,7 +4463,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -4639,7 +4639,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -4725,7 +4725,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -4822,7 +4822,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -4987,7 +4987,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -5073,7 +5073,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -5159,7 +5159,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -5245,7 +5245,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -5468,7 +5468,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -5767,7 +5767,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference
@@ -5853,7 +5853,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: whatTypeOfPegIsThis
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4073388166570433, guid: 4452942505b0bd346a6ce69a4aa02a5c, type: 3}
       propertyPath: gameManagerReference

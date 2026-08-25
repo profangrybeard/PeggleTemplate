@@ -36,8 +36,8 @@ Read the scripts in this order. Each one builds on concepts from the previous.
 
 ### 4. Then BallLauncher.cs
 **Why fourth?** Now see how the ball gets INTO the scene.
-- Notice the auto-aiming pattern (no mouse needed)
-- Find the "huh?" moment: why separate angle from force?
+- Notice the two coordinate systems: screen pixels in, world units out
+- Find the "huh?" moment: why is the launch direction `-transform.up` and not `transform.up`?
 
 ### 5. Then ScoreManager.cs
 **Why fifth?** See how hitting pegs becomes points.

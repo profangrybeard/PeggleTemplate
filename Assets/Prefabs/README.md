@@ -27,12 +27,12 @@ The core idea: **Change the master once, update everywhere.**
 When you drag a prefab into a scene, you create an **instance**. That instance **inherits** everything from the prefab:
 
 ```
-Peg_Blue.prefab (THE MASTER - lives in Project folder)
+Peg.prefab (THE MASTER - lives in Project folder)
     │
-    ├── Peg_Blue (Instance 1 - lives in Scene)
-    ├── Peg_Blue (Instance 2 - lives in Scene)
-    ├── Peg_Blue (Instance 3 - lives in Scene)
-    └── ... (as many as you want)
+    ├── Peg (Instance 1 - lives in Scene)
+    ├── Peg (Instance 2 - lives in Scene)
+    ├── Peg (Instance 3 - lives in Scene)
+    └── ... (50 of them, in this project)
 ```
 
 **What gets inherited:**
@@ -52,11 +52,11 @@ Peg_Blue.prefab (THE MASTER - lives in Project folder)
 Sometimes you want ONE instance to be different. Unity allows **overrides** — changes that only affect that specific instance.
 
 ```
-Peg_Blue.prefab
+Peg.prefab
     │
-    ├── Peg_Blue (Instance 1) ─── uses prefab position
-    ├── Peg_Blue (Instance 2) ─── uses prefab position
-    └── Peg_Blue (Instance 3) ─── OVERRIDE: moved to (5, 3, 0)
+    ├── Peg (Instance 1) ─── uses prefab position
+    ├── Peg (Instance 2) ─── uses prefab position
+    └── Peg (Instance 3) ─── OVERRIDE: moved to (5, 3, 0)
 ```
 
 In the Inspector, overridden values appear in **bold**. This tells you "this instance is different from the master."
@@ -119,33 +119,33 @@ When you look at a GameObject's Transform in the Inspector, you're usually seein
 
 ### Local Space: Relative to Parent
 
-Now imagine you have a Launcher, and the Launcher has a child object called "SpawnPoint" (where balls come out).
+Now imagine you have a Launcher, and the Launcher has a child object called "LaunchPoint" (where balls come out).
 
 ```
 Launcher (world position: 0, 5, 0)
-    └── SpawnPoint (local position: 0, -0.5, 0)
+    └── LaunchPoint (local position: 0, -0.5, 0)
 ```
 
-The SpawnPoint's **local position** is (0, -0.5, 0). That means:
+The LaunchPoint's **local position** is (0, -0.5, 0). That means:
 - "I am 0 units to the left/right of my parent"
 - "I am 0.5 units BELOW my parent"
 - "I am 0 units in front/behind my parent"
 
-**The world position** of SpawnPoint is (0, 4.5, 0) — calculated by adding parent + local.
+**The world position** of LaunchPoint is (0, 4.5, 0) — calculated by adding parent + local.
 
 ### Why Does This Matter?
 
-When the Launcher rotates to aim, the SpawnPoint rotates WITH it — because it's a child. The SpawnPoint's **local** position stays the same (0, -0.5, 0), but its **world** position changes as the Launcher turns.
+When the Launcher rotates to aim, the LaunchPoint rotates WITH it — because it's a child. The LaunchPoint's **local** position stays the same (0, -0.5, 0), but its **world** position changes as the Launcher turns.
 
 ```
 Launcher pointing straight down:
-    SpawnPoint world position: (0, 4.5, 0)
+    LaunchPoint world position: (0, 4.5, 0)
 
 Launcher rotated 45° to the right:
-    SpawnPoint world position: (0.35, 4.65, 0) ← it moved!
+    LaunchPoint world position: (0.35, 4.65, 0) ← it moved!
 ```
 
-**The question to sit with:** If you want the ball to spawn where the SpawnPoint is, should you use `spawnPoint.localPosition` or `spawnPoint.position`?
+**The question to sit with:** If you want the ball to spawn where the LaunchPoint is, should you use `launchPoint.localPosition` or `launchPoint.position`?
 
 ---
 
@@ -155,11 +155,15 @@ Launcher rotated 45° to the right:
 
 ```
 Ball
-├── Sprite Renderer (the visual)
 ├── Circle Collider 2D (so it can hit things)
 ├── Rigidbody 2D (so gravity works)
-└── BallBehavior.cs (the script)
+├── BallBehavior.cs (the script)
+├── Circle (child) ── Sprite Renderer (the visual)
+└── Trail  (child) ── Particle System (the streak it leaves behind)
 ```
+
+Notice the physics lives on the **root**, but the visual lives on a **child**. That split is
+deliberate.
 
 **Key settings:**
 - Rigidbody2D → Gravity Scale: affects how fast it falls
@@ -170,17 +174,17 @@ Ball
 
 ---
 
-### Peg_Blue.prefab (base for all peg types)
+### Peg.prefab (ONE prefab for every peg type)
 
 ```
-Peg_Blue
+Peg
 ├── Sprite Renderer (the visual)
 ├── Circle Collider 2D (so ball can hit it)
 └── PegBehavior.cs (the script)
 ```
 
 **Key settings:**
-- PegBehavior → whatTypeOfPegIsThis: Blue
+- PegBehavior → whatTypeOfPegIsThis: Blue (the prefab default)
 - PegBehavior → pointValueForThisPeg: 100
 - No Rigidbody2D (pegs don't move from physics)
 
@@ -188,14 +192,18 @@ Peg_Blue
 
 ---
 
-### Peg_Orange.prefab, Peg_Green.prefab, Peg_Purple.prefab
+### Where did Peg_Orange, Peg_Green, and Peg_Purple go?
 
-These are nearly identical to Peg_Blue. The only differences:
-- Different sprite (color)
-- Different `whatTypeOfPegIsThis` setting
-- Different `pointValueForThisPeg` value
+There aren't any. This project uses **one** `Peg.prefab` and sets the type per instance
+as an override. Open any peg in the scene and look at `whatTypeOfPegIsThis` in the
+Inspector — the orange ones show that value in **bold**, because they've been overridden
+away from the prefab's Blue default.
 
-**The question:** Should these be separate prefabs, or should there be ONE peg prefab with overrides? What are the tradeoffs?
+The color you see on screen isn't a different sprite either. Every peg uses the same white
+sprite, and `PegBehavior` tints it at runtime based on its type. Find that code.
+
+**The question:** Four separate prefabs, or one prefab with overrides? Both work. What does
+each approach cost you when you want to change how *all* pegs behave?
 
 ---
 
@@ -203,15 +211,15 @@ These are nearly identical to Peg_Blue. The only differences:
 
 ```
 Launcher
-├── Sprite Renderer (the cannon visual)
-├── SpawnPoint (empty child object)
-│   └── Transform only (marks where ball appears)
-└── BallLauncher.cs (the script)
+├── BallLauncher.cs (the script)
+├── Square (child) ───── Sprite Renderer (the barrel)
+├── Circle (child) ───── Sprite Renderer (the pivot)
+└── LaunchPoint (child) ─ Transform only (marks where the ball appears)
 ```
 
 **Key settings:**
-- SpawnPoint is a **child object** with local position (0, -0.5, 0)
-- BallLauncher → positionWhereBallSpawns: drag SpawnPoint here
+- LaunchPoint is an empty **child object** — it has a Transform and nothing else
+- BallLauncher → positionWhereBallSpawns: drag LaunchPoint here
 
 **The question:** Why use an empty child object for spawn position instead of just spawning at the Launcher's position?
 
