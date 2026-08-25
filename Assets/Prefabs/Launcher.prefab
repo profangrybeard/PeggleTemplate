@@ -168,6 +168,50 @@ MonoBehaviour:
   ballPrefabToSpawn: {fileID: 0}
   positionWhereBallSpawns: {fileID: 0}
   mainCameraReference: {fileID: 0}
+  aimPositionAction:
+    m_Name: AimPosition
+    m_Type: 0
+    m_ExpectedControlType: Vector2
+    m_Id: 7f3a1c22-9d84-4b16-8e05-2c9a6b47f101
+    m_Processors:
+    m_Interactions:
+    m_SingletonActionBindings:
+    - m_Name:
+      m_Id: 1b8e4d90-52c7-4a33-9f61-08d3e5a7c214
+      m_Path: <Mouse>/position
+      m_Interactions:
+      m_Processors:
+      m_Groups:
+      m_Action: AimPosition
+      m_Flags: 0
+    m_Flags: 0
+    m_Priority: 0
+  launchAction:
+    m_Name: Launch
+    m_Type: 1
+    m_ExpectedControlType:
+    m_Id: 3d6b0f47-8a15-42e9-b7c3-19f8d024e5a6
+    m_Processors:
+    m_Interactions:
+    m_SingletonActionBindings:
+    - m_Name:
+      m_Id: 9c2f7e18-4b60-4d52-a83f-6e1057b9d3c8
+      m_Path: <Mouse>/leftButton
+      m_Interactions:
+      m_Processors:
+      m_Groups:
+      m_Action: Launch
+      m_Flags: 0
+    - m_Name:
+      m_Id: 5a41c8d3-2e97-4f08-b165-7d3ea092f4b7
+      m_Path: <Keyboard>/space
+      m_Interactions:
+      m_Processors:
+      m_Groups:
+      m_Action: Launch
+      m_Flags: 0
+    m_Flags: 0
+    m_Priority: 0
   launchForceMultiplier: 10
   maximumAimAngleInDegrees: 75
 --- !u!1 &5406343446607744235

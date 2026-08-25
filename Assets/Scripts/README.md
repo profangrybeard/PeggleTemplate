@@ -14,6 +14,12 @@ C# scripts that control game behavior. Each script has one job.
 | `ScoreManager.cs` | Score tracking with combo multiplier |
 | `UIController.cs` | Display layer for score, balls remaining, etc. |
 
+## Also In This Folder
+
+| Doc | What it covers |
+|-----|----------------|
+| [`INPUT_SYSTEM.md`](INPUT_SYSTEM.md) | Devices, bindings, actions — read it with `BallLauncher.cs` |
+
 ## Reading Order for Students
 
 Read the scripts in this order. Each one builds on concepts from the previous.
@@ -37,6 +43,7 @@ Read the scripts in this order. Each one builds on concepts from the previous.
 ### 4. Then BallLauncher.cs
 **Why fourth?** Now see how the ball gets INTO the scene.
 - Notice the two coordinate systems: screen pixels in, world units out
+- Notice that nothing in this file names a mouse or a keyboard — read `INPUT_SYSTEM.md`
 - Find the "huh?" moment: why is the launch direction `-transform.up` and not `transform.up`?
 
 ### 5. Then ScoreManager.cs

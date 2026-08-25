@@ -1,6 +1,7 @@
 // This script handles aiming and launching the ball.
 
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class BallLauncher : MonoBehaviour
 {
@@ -12,6 +13,20 @@ public class BallLauncher : MonoBehaviour
     [SerializeField] private GameObject ballPrefabToSpawn;
     [SerializeField] private Transform positionWhereBallSpawns;
     [SerializeField] private Camera mainCameraReference;
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // INPUT ACTIONS - What the player can DO, and what counts as doing it
+    // ─────────────────────────────────────────────────────────────────────────
+    //
+    // An InputAction is a NAME for something the player can do ("Launch"),
+    // separated from the things that trigger it (a mouse button, the spacebar,
+    // a gamepad trigger). Those triggers are called BINDINGS.
+    //
+    // Click the arrow next to these in the Inspector to see their bindings.
+    // Notice that the code below never mentions a mouse or a keyboard.
+
+    [SerializeField] private InputAction aimPositionAction;
+    [SerializeField] private InputAction launchAction;
 
     // ─────────────────────────────────────────────────────────────────────────
     // SETTINGS - Tweak these to change launcher behavior
@@ -30,6 +45,21 @@ public class BallLauncher : MonoBehaviour
     // UNITY MESSAGES - Unity calls these automatically
     // ─────────────────────────────────────────────────────────────────────────
 
+    private void OnEnable()
+    {
+        // An action is asleep until you wake it up. Nothing is read until then.
+        // Why does this belong in OnEnable() instead of Start()?
+        aimPositionAction.Enable();
+        launchAction.Enable();
+    }
+
+    private void OnDisable()
+    {
+        // Why turn them off again? What is still listening if we don't?
+        aimPositionAction.Disable();
+        launchAction.Disable();
+    }
+
     private void Update()
     {
         if (!gameManagerReference.PlayerIsAllowedToShoot())
@@ -37,7 +67,7 @@ public class BallLauncher : MonoBehaviour
             return;
         }
 
-        AimTowardMousePosition();
+        AimTowardPointer();
         CheckForLaunchInput();
     }
 
@@ -45,18 +75,23 @@ public class BallLauncher : MonoBehaviour
     // PRIVATE METHODS - Internal logic
     // ─────────────────────────────────────────────────────────────────────────
 
-    private void AimTowardMousePosition()
+    private void AimTowardPointer()
     {
-        // Convert mouse position from screen pixels to world units.
-        Vector3 mouseScreenPosition = Input.mousePosition;
-        mouseScreenPosition.z = 10f;
-        Vector3 mouseWorldPosition = mainCameraReference.ScreenToWorldPoint(mouseScreenPosition);
+        // Ask the action for its value right now. A Value action always has one.
+        // Why does this return a Vector2 when ScreenToWorldPoint wants a Vector3?
+        Vector2 pointerScreenPosition = aimPositionAction.ReadValue<Vector2>();
 
-        // Calculate direction from launcher to mouse.
-        Vector3 directionToMouse = mouseWorldPosition - transform.position;
+        // Screen pixels are not world units. This converts between them.
+        Vector3 pointerScreenPositionWithDepth =
+            new Vector3(pointerScreenPosition.x, pointerScreenPosition.y, 10f);
+        Vector3 pointerWorldPosition =
+            mainCameraReference.ScreenToWorldPoint(pointerScreenPositionWithDepth);
+
+        // Calculate direction from launcher to pointer.
+        Vector3 directionToPointer = pointerWorldPosition - transform.position;
 
         // Convert direction to angle, adjusting so 0° means straight down.
-        float angleInDegrees = Mathf.Atan2(directionToMouse.y, directionToMouse.x) * Mathf.Rad2Deg + 90f;
+        float angleInDegrees = Mathf.Atan2(directionToPointer.y, directionToPointer.x) * Mathf.Rad2Deg + 90f;
 
         // Clamp so player can only aim downward into the play field.
         currentAimAngleInDegrees = Mathf.Clamp(angleInDegrees, -maximumAimAngleInDegrees, maximumAimAngleInDegrees);
@@ -67,11 +102,11 @@ public class BallLauncher : MonoBehaviour
 
     private void CheckForLaunchInput()
     {
-        // Why use GetMouseButtonDown instead of GetMouseButton?
-        bool playerClickedThisFrame = Input.GetMouseButtonDown(0);
-        bool playerPressedSpaceThisFrame = Input.GetKeyDown(KeyCode.Space);
+        // "Was it pressed during this frame?" - true for exactly one frame.
+        // The launch action has TWO bindings. Why does one line handle both?
+        bool playerTriggeredLaunchThisFrame = launchAction.WasPressedThisFrame();
 
-        if (playerClickedThisFrame || playerPressedSpaceThisFrame)
+        if (playerTriggeredLaunchThisFrame)
         {
             LaunchBall();
         }

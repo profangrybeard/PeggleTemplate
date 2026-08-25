@@ -69,6 +69,10 @@ You should see a grid of orange and blue pegs, a launcher at the top, and a buck
 | **Move mouse** | Aim the launcher |
 | **Left click** or **Space** | Launch a ball |
 
+These are not hardcoded. Select the Launcher and look at its **Input Actions** in the
+Inspector — you can rebind them without touching a script. See
+[`Assets/Scripts/INPUT_SYSTEM.md`](Assets/Scripts/INPUT_SYSTEM.md).
+
 **The rules:**
 - You start with **10 balls**
 - Hitting any peg scores points
@@ -122,6 +126,16 @@ project uses the Universal Render Pipeline. Select the object, look at its Mater
 switch it to a URP shader.
 
 **"The type or namespace name 'TMPro' could not be found"** — Let Unity finish importing, then **Assets → Reimport All**.
+
+**"The name 'Input' does not exist in the current context"** — You used the old input
+system. This project uses the new one, on purpose. `Input.GetKeyDown(KeyCode.Space)`
+becomes `someAction.WasPressedThisFrame()`. Read
+[`Assets/Scripts/INPUT_SYSTEM.md`](Assets/Scripts/INPUT_SYSTEM.md). Most tutorials you
+find online are still teaching the old way.
+
+**Aiming or firing does nothing, and there's no error** — An Input Action that was never
+enabled fails silently. Check `OnEnable()` in `BallLauncher.cs`, then check that the
+action still has a binding in the Inspector.
 
 **Console errors the moment you press Play** — Read the error. It names a file and a line number. Double-click it. That habit is most of this class.
 

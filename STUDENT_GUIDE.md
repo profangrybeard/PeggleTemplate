@@ -6,13 +6,39 @@ You're not building this game — you're reading it. Treat code like a novel: re
 
 ## Week 1: The Basics
 
-**Read:** `PegBehavior.cs`, `BallBehavior.cs`
+**Read:** `PegBehavior.cs`, `BallBehavior.cs`, and the input half of `BallLauncher.cs`
+**Also read:** [`Assets/Scripts/INPUT_SYSTEM.md`](Assets/Scripts/INPUT_SYSTEM.md)
 
 ### Quick Reference
 - **GameObject:** A thing in your scene (the ball, a peg, the camera)
 - **Component:** A behavior attached to a GameObject (script, collider, sprite)
 - **Inspector:** The panel where you see and edit a GameObject's components
 - **[SerializeField]:** Makes a variable editable in the Inspector
+- **InputAction:** A named thing the player can do, separate from the button that does it
+
+### How the Game Hears You
+
+Every game needs to know what the player is doing. Unity has two ways to ask, and this
+project uses the newer one — the older one is being removed.
+
+The difference in one line:
+
+```csharp
+// OLD - the code names the hardware
+bool pressed = Input.GetKeyDown(KeyCode.Space);
+
+// NEW - the code names the intent
+bool pressed = launchAction.WasPressedThisFrame();
+```
+
+Open `BallLauncher.cs` and find `OnEnable()`, `CheckForLaunchInput()`, and the two
+`InputAction` fields near the top. That is the whole input story. **Read
+`INPUT_SYSTEM.md` before you touch it** — it explains devices, bindings, and why an
+action that isn't enabled fails silently.
+
+You are learning this first on purpose. Most tutorials online still use the old system.
+If you paste `Input.GetKeyDown` into this project it will not compile, and that is the
+point.
 
 ### Things to Notice
 - Each script starts with a header comment explaining its one job
@@ -27,21 +53,31 @@ You're not building this game — you're reading it. Treat code like a novel: re
 3. Remove a peg's Collider2D component. What happens when the ball reaches it?
 4. Pick a blue peg and change `whatTypeOfPegIsThis` to Orange. Play. Two things change —
    one you can see immediately, one you can only see by playing the round out. Find both.
+5. Select the Launcher. In the Inspector, open the **Launch** action and add
+   `<Keyboard>/enter` as a second binding. Play. You changed the controls without
+   opening a script.
+6. Comment out the two lines inside `OnEnable()` in `BallLauncher.cs`. Play. Aiming and
+   firing both stop — and the Console says nothing at all.
 
 ### Questions (Answer in your own comments)
 - In PegBehavior: Why check `thisPegHasAlreadyBeenHit` before doing anything?
 - In BallBehavior: Why check Y position instead of using a trigger at the bottom?
 - In PegBehavior: Every peg calls the ScoreManager, but only orange pegs call the
   GameManager. What would break if *every* peg called the GameManager?
+- In BallLauncher: `launchAction` has two bindings but `CheckForLaunchInput()` is one
+  line. How does one line cover both a mouse and a keyboard?
+- Why does enabling an action belong in `OnEnable()` and not `Start()`?
 
 ---
 
 ## Week 2: Cause and Effect
 
-**Read:** `BallLauncher.cs`, `BucketBehavior.cs`
+**Read:** the rest of `BallLauncher.cs`, `BucketBehavior.cs`
+
+Week 1 covered how the launcher *hears* the player. This week is what it *does* with that.
 
 ### Things to Notice
-- `Input.mousePosition` gives screen pixels, not world position
+- `ReadValue<Vector2>()` gives screen pixels, not world position
 - `ScreenToWorldPoint()` converts between the two coordinate systems
 - `Instantiate()` creates a new copy of a prefab at runtime
 - `-transform.up` gives the direction the launcher is pointing (down)
@@ -55,7 +91,7 @@ You're not building this game — you're reading it. Treat code like a novel: re
    *collider* scales too — can you see the moment it does?
 
 ### Questions (Answer in your own comments)
-- In BallLauncher: Why do we need to convert mouse position from screen to world?
+- In BallLauncher: Why do we need to convert pointer position from screen to world?
 - In BucketBehavior: Why use `OnTriggerEnter2D` instead of `OnCollisionEnter2D`?
 - Why does the ball use `Instantiate()` but the pegs are already in the scene?
 
