@@ -115,7 +115,11 @@ Each file has one job. You should be able to guess what's inside before you open
 
 ## When Something Breaks
 
-**Pink or missing sprites** — Git LFS wasn't installed before cloning. Run `git lfs pull`.
+**Missing or placeholder sprites** — Git LFS wasn't installed before cloning. Run `git lfs pull`.
+
+**Bright magenta objects** — That's a shader that doesn't match the render pipeline. This
+project uses the Universal Render Pipeline. Select the object, look at its Material, and
+switch it to a URP shader.
 
 **"The type or namespace name 'TMPro' could not be found"** — Let Unity finish importing, then **Assets → Reimport All**.
 
