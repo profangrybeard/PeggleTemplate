@@ -79,6 +79,9 @@ public class GameManager : MonoBehaviour
 
         uiControllerReference.UpdateBallsRemainingDisplay(numberOfBallsRemaining);
 
+        // The number already went back up on the line above. Why say it twice?
+        uiControllerReference.CelebrateBallEarnedBack();
+
         scoreManagerReference.ResetComboForNewShot();
     }
 

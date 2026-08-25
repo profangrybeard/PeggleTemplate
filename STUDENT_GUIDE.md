@@ -51,6 +51,8 @@ You're not building this game — you're reading it. Treat code like a novel: re
 2. Change `maximumAimAngleInDegrees` to 30, then to 90. What's the tradeoff?
 3. Double `bucketMoveSpeedInUnitsPerSecond`. Is the game easier or harder?
 4. In BallLauncher, change `-transform.up` to `transform.up`. What happens? Why?
+5. Set `howMuchBiggerTheBucketGetsWhenItCatches` to 3. Catch a ball. The bucket's
+   *collider* scales too — can you see the moment it does?
 
 ### Questions (Answer in your own comments)
 - In BallLauncher: Why do we need to convert mouse position from screen to world?
@@ -82,8 +84,21 @@ That's the path for *any* peg. Orange pegs take a second path at the same time:
 
 Now trace: What happens when the ball falls off the bottom?
 
+### Feedback: Making a Change Feel Like Something
+
+Catching a ball in the bucket gives you a ball back. Before the celebration existed, the
+counter went 9 → 10 and that was it — the reward was invisible.
+
+Look at `GameManager.OnBallWasCaughtByBucket()`. It calls UIController **twice**: once to
+change the number, once to make you notice it changed. Then look at how BucketBehavior and
+UIController both animate using `Mathf.PingPong`.
+
 ### Questions (Answer in your own comments)
 - Why doesn't UIController calculate the score itself?
+- Why is "update the number" a separate call from "celebrate the number"? What would you
+  lose by merging them into one method?
+- Both the bucket and the ball counter use the same PingPong pattern. Should that be shared
+  code somewhere? What would you give up by sharing it?
 - Why does GameManager check win/lose AFTER the ball is gone, not when a peg is hit?
 - What would break if PegBehavior updated the UI directly?
 
