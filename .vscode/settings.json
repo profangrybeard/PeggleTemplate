@@ -68,6 +68,7 @@
         "*.slnx": "*.csproj"
     },
     "dotnet.defaultSolution": "PeggleTemplate.slnx",
+    "dotnet.projects.enableFileBasedPrograms": false,
     "chat.disableAIFeatures": true,
     "github.copilot.enable": { "*": false },
     "editor.inlineSuggest.enabled": false
