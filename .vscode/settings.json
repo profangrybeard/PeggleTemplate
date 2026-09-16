@@ -67,5 +67,8 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "PeggleTemplate.slnx"
+    "dotnet.defaultSolution": "PeggleTemplate.slnx",
+    "chat.disableAIFeatures": true,
+    "github.copilot.enable": { "*": false },
+    "editor.inlineSuggest.enabled": false
 }
