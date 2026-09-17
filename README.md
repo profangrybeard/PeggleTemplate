@@ -15,10 +15,13 @@ Install these in order. The order matters.
 | Tool | Version | Notes |
 |------|---------|-------|
 | **Unity Hub** | Latest | Download from [unity.com/download](https://unity.com/download) |
-| **Unity Editor** | **6000.5.9f1** | Install *through Unity Hub*. Other versions may break the project. |
+| **Unity Editor** | **6000.6.1f1** | Install *through Unity Hub*. Other versions may break the project. |
 | **Git LFS** | Latest | [git-lfs.com](https://git-lfs.com) — **install this BEFORE you clone** |
 | **GitHub Desktop** | Latest | [desktop.github.com](https://desktop.github.com) |
-| **Visual Studio 2022** | Community | Include the *Game development with Unity* workload |
+| **VS Code** | Latest | [code.visualstudio.com](https://code.visualstudio.com) |
+| **.NET SDK** | Latest | [dot.net](https://dot.net) — VS Code needs this to understand C# |
+
+**Restart your computer after installing everything.** VS Code won't find the .NET SDK until you do.
 
 > **Git LFS is not optional.** This project stores images, audio, and fonts through Git LFS. If you clone before installing it, those files arrive as small text placeholders instead of real assets, and the project will look broken. If that happens: install Git LFS, then run `git lfs pull`.
 
@@ -46,17 +49,31 @@ git lfs install && git clone https://github.com/YOUR-USERNAME/PeggleTemplate.git
 
 1. Open **Unity Hub → Add → Add project from disk**
 2. Select the folder you just cloned
-3. Make sure the editor version reads **6000.5.9f1**, then open it
+3. Make sure the editor version reads **6000.6.1f1**, then open it
 
 First open takes several minutes — Unity is importing and compiling everything. This is normal. Let it finish.
 
-### 4. Open the game scene
+### 4. Connect Unity to VS Code
+
+1. In Unity: **Edit → Preferences → External Tools**
+2. Set **External Script Editor** to **Visual Studio Code**
+3. Click **Regenerate project files**
+4. Double-click any script in `Assets/Scripts/`. It opens in VS Code.
+5. VS Code offers to install the recommended extensions — click **Install**. You get
+   **Unity** (autocomplete and debugging) and **Google Antigravity** (your AI tutor).
+
+**Test it:** in any script, type `transform.` — a list of suggestions should pop up. If it
+doesn't, see *When Something Breaks* below.
+
+To sign in to your AI tutor, follow **Before Week 1** in [STUDENT_GUIDE.md](STUDENT_GUIDE.md).
+
+### 5. Open the game scene
 
 In the **Project** window, go to `Assets/Scenes/` and double-click **`Peggle_Prototype_01.unity`**.
 
 If you see an empty scene with just a camera and a light, you opened `SampleScene` by mistake. Open the right one.
 
-### 5. Press Play
+### 6. Press Play
 
 You should see a grid of orange and blue pegs, a launcher at the top, and a bucket sliding along the bottom.
 
@@ -141,6 +158,14 @@ action still has a binding in the Inspector.
 
 **Nothing happens when you click** — Check that you're in `Peggle_Prototype_01`, not `SampleScene`.
 
-**Unity won't open the project** — Confirm the editor version is 6000.5.9f1 in Unity Hub.
+**Unity won't open the project** — Confirm the editor version is 6000.6.1f1 in Unity Hub.
+
+**No autocomplete in VS Code, or red errors on scripts that work fine in Unity** — VS Code
+can't find the .NET SDK. Make sure it's installed, then restart your computer. Still
+broken? In Unity, **Edit → Preferences → External Tools → Regenerate project files**.
+
+**AI tutor sign-in ends on "localhost refused to connect"** — Signing in from the VS Code
+panel is broken right now. Sign in from PowerShell instead: see **Before Week 1** in
+[STUDENT_GUIDE.md](STUDENT_GUIDE.md).
 
 Still stuck? Bring the exact error text to class or office hours. "It doesn't work" is not an error message.

@@ -4,6 +4,51 @@ You're not building this game — you're reading it. Treat code like a novel: re
 
 ---
 
+## Before Week 1: Set Up Your AI Tutor
+
+This project comes with an AI tutor in VS Code, powered by Gemini. It is set up to
+**help you understand, not to write your code for you.** Ask it why something works,
+what an error means, or where to look. It will answer with hints and questions, and
+you do the typing.
+
+### Step 1: Install the Extension
+Open this project folder in VS Code. A popup offers to install the recommended
+extensions — click **Install**. One of them is **Google Antigravity**.
+
+Wait for VS Code to finish loading, then close VS Code. The extension needs to run once
+before the next step works.
+
+### Step 2: Sign In From a Terminal
+Signing in from the Antigravity panel inside VS Code is broken right now: the
+browser ends on a page that says **"localhost refused to connect."** Sign in from a
+terminal instead.
+
+1. Make sure VS Code is closed.
+2. Open **PowerShell** and run:
+   ```powershell
+   & "$env:USERPROFILE\.gemini\bin\agy.exe"
+   ```
+3. Your browser opens. Sign in with your Google account and click **Sign in** on the
+   "Make sure that you downloaded this app from Google" screen.
+4. When the browser says you're done, go back to the terminal and close it.
+5. Open VS Code. The Antigravity panel is now signed in.
+
+### Step 3: Check That It's in Tutor Mode
+In the Antigravity panel, ask: **"Write the code to launch the ball for me."**
+
+It should say no and offer a hint or a question instead. If it writes the code, tell
+your instructor.
+
+### Using Your Tutor Well
+- **Say what you expected and what happened.** "I changed the angle to 90 and the ball
+  goes sideways. I expected it to go straight down."
+- **Paste the exact error** from Unity's Console. Don't paraphrase it.
+- **Ask why, not what.** "Why does this use `OnEnable()`?" teaches you more than "fix this."
+- **The Questions in this guide are your assignment.** The tutor will help you think
+  them through, but it won't hand you the answers.
+
+---
+
 ## Week 1: The Basics
 
 **Read:** `PegBehavior.cs`, `BallBehavior.cs`, and the input half of `BallLauncher.cs`
