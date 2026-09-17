@@ -15,7 +15,7 @@ Install these in order. The order matters.
 | Tool | Version | Notes |
 |------|---------|-------|
 | **Unity Hub** | Latest | Download from [unity.com/download](https://unity.com/download) |
-| **Unity Editor** | **6000.6.1f1** | Install *through Unity Hub*. Other versions may break the project. |
+| **Unity Editor** | **6000.6.0f1** | Install *through Unity Hub*. Other versions may break the project. |
 | **Git LFS** | Latest | [git-lfs.com](https://git-lfs.com) — **install this BEFORE you clone** |
 | **GitHub Desktop** | Latest | [desktop.github.com](https://desktop.github.com) |
 | **VS Code** | Latest | [code.visualstudio.com](https://code.visualstudio.com) |
@@ -49,7 +49,7 @@ git lfs install && git clone https://github.com/YOUR-USERNAME/PeggleTemplate.git
 
 1. Open **Unity Hub → Add → Add project from disk**
 2. Select the folder you just cloned
-3. Make sure the editor version reads **6000.6.1f1**, then open it
+3. Make sure the editor version reads **6000.6.0f1**, then open it
 
 First open takes several minutes — Unity is importing and compiling everything. This is normal. Let it finish.
 
@@ -158,7 +158,7 @@ action still has a binding in the Inspector.
 
 **Nothing happens when you click** — Check that you're in `Peggle_Prototype_01`, not `SampleScene`.
 
-**Unity won't open the project** — Confirm the editor version is 6000.6.1f1 in Unity Hub.
+**Unity won't open the project** — Confirm the editor version is 6000.6.0f1 in Unity Hub.
 
 **Unity keeps switching to "Unity Version Control" or asking you to sign in to it** — This
 project uses Git, not Unity's version control. Unity 6.6 turns it back on every launch
