@@ -32,7 +32,9 @@ public class BallBehavior : MonoBehaviour
     {
         // This ball was just created by Instantiate(). It needs to find the GameManager.
         // Why do we have to "find" it here when other scripts just drag it in the Inspector?
-        gameManagerReference = FindFirstObjectByType<GameManager>();
+        // And why ask for *any* GameManager instead of the *first* one?
+        // How many GameManagers are in this scene? Does "first" even mean anything here?
+        gameManagerReference = FindAnyObjectByType<GameManager>();
     }
 
     private void Update()
