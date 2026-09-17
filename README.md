@@ -160,6 +160,13 @@ action still has a binding in the Inspector.
 
 **Unity won't open the project** — Confirm the editor version is 6000.6.1f1 in Unity Hub.
 
+**Unity keeps switching to "Unity Version Control" or asking you to sign in to it** — This
+project uses Git, not Unity's version control. Unity 6.6 turns it back on every launch
+if the **Version Control** package is installed.
+1. **Window → Package Manager**, find **Version Control**, click **Remove**
+2. **Edit → Project Settings → Version Control**, set **Mode** to **Visible Meta Files**
+3. Restart Unity. It should stay on Visible Meta Files.
+
 **No autocomplete in VS Code, or red errors on scripts that work fine in Unity** — VS Code
 can't find the .NET SDK. Make sure it's installed, then restart your computer. Still
 broken? In Unity, **Edit → Preferences → External Tools → Regenerate project files**.
