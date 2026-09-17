@@ -51,6 +51,11 @@ git lfs install && git clone https://github.com/YOUR-USERNAME/PeggleTemplate.git
 2. Select the folder you just cloned
 3. Make sure the editor version reads **6000.6.0f1**, then open it
 
+> **If Unity Hub offers to open or upgrade the project with a newer editor, say no.** Unity
+> ships patch updates constantly, and Hub nudges you toward the newest one. This project is
+> pinned to 6000.6.0f1 — the version installed on the lab machines. Upgrading makes your
+> copy stop matching everyone else's, and it is not a change you can easily undo.
+
 First open takes several minutes — Unity is importing and compiling everything. This is normal. Let it finish.
 
 ### 4. Connect Unity to VS Code
@@ -142,7 +147,17 @@ Each file has one job. You should be able to guess what's inside before you open
 project uses the Universal Render Pipeline. Select the object, look at its Material, and
 switch it to a URP shader.
 
-**"The type or namespace name 'TMPro' could not be found"** — Let Unity finish importing, then **Assets → Reimport All**.
+**"The type or namespace name 'TMPro' could not be found"** — First, let Unity finish
+importing, then **Assets → Reimport All**. That fixes the common case.
+
+If it comes back, the problem is almost certainly *not* TextMeshPro. When Unity fails to
+load its packages, TextMeshPro is simply one of the things that goes missing, and it is
+the one that shows up in the error. Scroll to the very top of the Console and look for a
+red **"Project has invalid dependencies"** message instead — that is the real error, and
+it usually means your editor version doesn't match the one this project expects.
+
+Do **not** delete the `Assets/TextMesh Pro/` folder. It is supposed to be there. Deleting
+it breaks all the text in the game and fixes nothing.
 
 **"The name 'Input' does not exist in the current context"** — You used the old input
 system. This project uses the new one, on purpose. `Input.GetKeyDown(KeyCode.Space)`
@@ -158,7 +173,16 @@ action still has a binding in the Inspector.
 
 **Nothing happens when you click** — Check that you're in `Peggle_Prototype_01`, not `SampleScene`.
 
-**Unity won't open the project** — Confirm the editor version is 6000.6.0f1 in Unity Hub.
+**Unity won't open the project, or quits right after you open it** — Confirm the editor
+version is **6000.6.0f1** in Unity Hub. If Hub shows a different version next to the
+project, or warns that the project was made with another version, that's the problem.
+Install 6000.6.0f1 from **Unity Hub → Installs → Install Editor → Archive** and open with
+that. Don't let Hub upgrade the project to a newer editor.
+
+**You pulled new changes and now things are broken** — Unity caches everything it imports
+in a `Library/` folder that isn't part of the repository. After a big update that cache
+can be stale. Close Unity, delete the `Library/` folder inside your project, and reopen.
+Unity rebuilds it from scratch — takes a few minutes, and you lose nothing.
 
 **Unity keeps switching to "Unity Version Control" or asking you to sign in to it** — This
 project uses Git, not Unity's version control. Unity 6.6 turns it back on every launch
