@@ -200,3 +200,11 @@ panel is broken right now. Sign in from PowerShell instead: see **Before Week 1*
 [STUDENT_GUIDE.md](STUDENT_GUIDE.md).
 
 Still stuck? Bring the exact error text to class or office hours. "It doesn't work" is not an error message.
+
+## License
+
+The code in this project is MIT licensed. See [LICENSE](LICENSE).
+
+Written guides and original art by Tim Lindsey are licensed [CC BY-NC-SA 4.0](LICENSE-docs). You can share and adapt them for non-commercial use, with credit, under the same license.
+
+Third-party assets keep their own licenses.
